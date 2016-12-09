@@ -9,7 +9,11 @@ Cards.allow({
 Category = new SimpleSchema({
 	name: {
 		type: String,
-		label: "Name of category"
+		label: "Name of category",
+		autoform: {			
+			label: false,
+			placeholder: "Name of category",
+		}
 	}
 });
 
@@ -18,14 +22,18 @@ CardSchema = new SimpleSchema({
 		type: String,
 		label: "Front side of the card",
 		autoform: {
-			rows: 3
+			rows: 3,
+			label: false,
+			placeholder: "Front side of the card",
 		}
 	},
 	backSide: {
 		type: String,
 		label: "Back side of the card",
 		autoform: {
-			rows: 3
+			rows: 3,
+			label: false,
+			placeholder: "Back side of the card",
 		}
 	},
 	categories: {
