@@ -1,9 +1,12 @@
 <template name="Card">
 	<article class="card">
-		<p>Front side: {{frontSide}}</p>
-		<p>Back side: {{backSide}}</p>
+		{{#if isBackSide}}
+			<p>Back side: {{backSide}}</p>
+		{{else}}
+			<p>Front side: {{frontSide}}</p>
+		{{/if}}		
 		<p>
-		Categories:
+			Category: 
 			{{#each categories}}
 				<span>{{name}}</span>
 			{{/each}}
