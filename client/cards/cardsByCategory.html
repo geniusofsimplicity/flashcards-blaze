@@ -1,0 +1,13 @@
+<template name="CardsByCategory">
+	Test yourself in selected categories.
+	<br/>
+	Categoties:
+	{{> Categories}}
+	<br/>
+	Cards:
+	<section>
+		{{#each cards}}
+			{{> Card}}
+		{{/each}}
+	</section>
+</template>

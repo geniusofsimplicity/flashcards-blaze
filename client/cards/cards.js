@@ -1,6 +1,6 @@
 Meteor.subscribe('cards');
 
-Template.Cards.helpers({
+Template.CardsAll.helpers({
 	cards: () => {
 		return Cards.find({});
 	}
