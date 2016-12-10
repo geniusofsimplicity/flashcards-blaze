@@ -1,8 +1,25 @@
 <template name="Categories">
-	<!-- <select> -->
-		{{#each categories}}
-			<!-- <option value="{{this}}">{{this}}</option> -->
-			{{this}}
-		{{/each}}
-	<!-- </select> -->
+	<div class="new-card-container">
+		<i class="fa fa-close"></i>
+		{{> quickForm collection="Categories" id="insertCardForm" type="insert"}}
+	</div>	
+	{{#each categories}}			
+		{{name}}
+	{{/each}}
+	*******
+	<br/>	
+	<div class="autosuggest-component">
+  {{> EasySearch.Autosuggest index=searchIndex}}
+  <!-- {{#autoForm collection=Categories id="insertCategoryForm" type="insert"}}
+  	<fieldset>
+  		{{> afFieldInput name='name' type="mySearch"}}
+  	</fieldset>
+  	<button type="submit" class="btn btn-primary">Submit</button>
+  {{/autoForm}} -->
+  <form class="new-category">
+    {{> SearchCategory}}
+  </form>
+</div>
+
+
 </template>

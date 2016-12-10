@@ -37,3 +37,6 @@ gwendall:auth-client-callbacks
 
 meteortoys:allthings
 check
+easy:search
+easysearch:autosuggest
+sebdah:autocompletion

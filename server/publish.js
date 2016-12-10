@@ -3,5 +3,5 @@ Meteor.publish('cards', function(){
 });
 
 Meteor.publish('categories', function() {
-	return Cards.find({ author: this.userId});
+	return Categories.find({ author: this.userId });
 });
