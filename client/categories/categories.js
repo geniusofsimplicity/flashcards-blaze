@@ -25,9 +25,8 @@ Template.Categories.helpers({
 
 Template.Categories.events({
   'submit form': function(e) {
-    e.preventDefault();
-    console.log('submitting');
-    categoryName = e.target.name.value;
+    e.preventDefault();    
+    categoryName = e.target.categoryName.value;
     Meteor.call('addCategory', categoryName);
     e.target.name.value = '';
   },

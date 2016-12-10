@@ -8,7 +8,6 @@ Categories.allow({
 
 Meteor.methods({
   addCategory: function(categoryName){
-  	console.log('in addCategory method');
     let currentUserId = Meteor.userId();
     if(currentUserId){
       Categories.insert({

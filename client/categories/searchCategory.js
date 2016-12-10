@@ -1,16 +1,6 @@
 import { Index, MinimongoEngine } from 'meteor/easy:search';
 Meteor.subscribe('categories');
 
-AutoForm.addInputType("mySearch", {
-  template: "SearchCategory",  
-  valueOut: function () {
-    let val = this.val();
-    console.log("testing");
-    console.log(val);
-    return val;
-  }
-});
-
 Template.SearchCategory.helpers({  
   searchIndex: () => {
     const CategoriesIndex = new Index({
@@ -36,7 +26,7 @@ Template.SearchCategory.events({
       collection: Categories,              // MeteorJS collection object
       field: 'name',                    // Document field name to search for
       limit: 0,                         // Max number of elements to show
-      sort: { name: 1 }});              // Sort object to filter results with
+      sort: { categoryName: 1 }});              // Sort object to filter results with
       //filter: { 'gender': 'female' }}); // Additional filtering
   }
 });
