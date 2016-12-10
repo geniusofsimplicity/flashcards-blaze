@@ -1,9 +1,6 @@
-<template name="NewCard">
-	<div class="new-card-container">
-		<i class="fa fa-close"></i>
-		{{> quickForm collection="Cards" id="insertCardForm" type="insert"}}		
-	</div>
+<template name="NewCard">	
 	<dir class="new-card-container">
+		<i class="fa fa-close"></i>
 		<form id="new-card-form">
 			<textarea name="frontSide" form="new-card-form" placeholder="Front side of the card" rows="3"></textarea> 
 			<textarea name="backSide" form="new-card-form" placeholder="Back side of the card" rows="3"></textarea>

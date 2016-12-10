@@ -6,14 +6,20 @@ Cards.allow({
 	}
 });
 
+Meteor.methods({
+  addCard: function(card){
+    let currentUserId = Meteor.userId();
+    console.log("adding card");
+    console.log(card);
+    if(currentUserId){
+      Cards.insert(card);
+    }
+  },
+});
+
 Category = new SimpleSchema({
-	name: {
-		type: String,
-		label: "Name of category",
-		autoform: {			
-			label: false,
-			placeholder: "Name of category",
-		}
+	categoryId: {
+		type: String,				
 	}
 });
 

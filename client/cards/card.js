@@ -1,3 +1,5 @@
+Meteor.subscribe("categories");
+
 Template.Card.onCreated(function() {
 	this.isBackSide = new ReactiveVar(false);
 });
@@ -5,6 +7,10 @@ Template.Card.onCreated(function() {
 Template.Card.helpers({
 	isBackSide: function() {
 		return Template.instance().isBackSide.get();
+	},
+	getCategoryNameById: (categoryId) => {
+		let categoryName = Categories.findOne({ _id: categoryId }).name;		
+		return categoryName; 
 	}
 });
 

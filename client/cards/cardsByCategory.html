@@ -2,11 +2,11 @@
 	Test yourself in selected categories.
 	<br/>
 	Categoties:
-	{{> Categories}}
+	{{> SearchCategory}}
 	<br/>
 	Cards:
 	<section>
-		{{#each cards}}
+		{{#each cardsByCategory}}
 			{{> Card}}
 		{{/each}}
 	</section>

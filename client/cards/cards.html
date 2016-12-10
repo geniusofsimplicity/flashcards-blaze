@@ -1,6 +1,11 @@
 <template name="CardsAll">
-	{{> NewCard}}
+	{{#if $.Session.get 'newCard'}}
+		{{> NewCard}}
+	{{else}}
+		<button class="new-card">New Card</button>
+	{{/if}}	
 	<section>
+		Recently created:
 		{{#each cards}}
 			{{> Card}}
 		{{/each}}
