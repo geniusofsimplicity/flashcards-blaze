@@ -4,5 +4,6 @@
 
 <template name="SearchCategory">
 	  <input name="categoryName" type="text"  autocomplete="off" spellcheck="off"
-           id="searchCategories" placeholder="Name of category" />
+           id="searchCategories" placeholder="Name of category" value="{{getCategoryNameById(categories.[0].categoryId)}}"/>
+           
 </template>

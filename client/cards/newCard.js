@@ -2,7 +2,7 @@ Meteor.subscribe("cards");
 Meteor.subscribe("categories");
 
 Template.NewCard.events({
-	'submit #new-card-form': function(e) {
+	'submit form': function(e) {
 		e.preventDefault();		
 		let frontSide = e.target.frontSide.value;
 		let backSide = e.target.backSide.value;

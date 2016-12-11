@@ -1,16 +1,27 @@
 <template name="Card">
 	<article class="card">
-		{{#if isBackSide}}
-			<p>Back side: {{backSide}}</p>
+		{{#if editMode}}
+			{{#with this}}
+				{{> EditCard }}
+			{{/with}}
+			<!-- {{> EditCard frontSide=frontSide backSide=backSide categories=categories}} -->
+			}
 		{{else}}
-			<p>Front side: {{frontSide}}</p>
-		{{/if}}		
-		<p>
-			Category: 
-			{{#each categories}}
-				<span>{{getCategoryNameById(categoryId)}}</span>
-			{{/each}}
-		</p>
+			{{#if isBackSide}}
+				<p>Back side: {{backSide}}</p>
+			{{else}}
+				<p>Front side: {{frontSide}}</p>
+			{{/if}}		
+			<p>
+				Category: 
+				{{#each categories}}
+					<span>{{getCategoryNameById(categoryId)}}</span>
+				{{/each}}
+			</p>
+		{{/if}}
+		
 		<i class="fa fa-exchange"></i>
+		<i class="fa fa-trash"></i>
+		<i class="fa fa-pencil"></i>
 	</article>
 </template>

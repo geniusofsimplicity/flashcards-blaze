@@ -12,6 +12,13 @@ Template.SearchCategory.helpers({
   },
   searchCategories: () => {
     Categories.find().fetch().map(function(it){ return it.name; });
+  },
+  getCategoryNameById: (id) => {
+    console.log("in getCategoryNameById");
+    let category = Categories.findOne({ _id: id });
+    if(!!category){
+      return category.name;
+    }
   }
 });
 

@@ -3,16 +3,25 @@ Cards = new Mongo.Collection('cards');
 Cards.allow({
 	insert: function(userId, doc) {
 		return !!userId;
+	},
+	update: function(userId, doc) {
+		return !!userId;
 	}
 });
 
 Meteor.methods({
   addCard: function(card){
     let currentUserId = Meteor.userId();
-    console.log("adding card");
-    console.log(card);
     if(currentUserId){
       Cards.insert(card);
+    }
+  },
+  updateCard: function(card){
+    let currentUserId = Meteor.userId();
+    console.log("updating card");
+    console.log(card);
+    if(currentUserId){
+      Cards.update( card._id, { $set: card });
     }
   },
 });

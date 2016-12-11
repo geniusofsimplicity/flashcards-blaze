@@ -8,7 +8,6 @@ Template.CardsAll.helpers({
 
 Template.CardsAll.events({
 	'click .new-card': () => {
-		console.log("new card was clicked");
 		Session.set('newCard', true);
 	}
 });

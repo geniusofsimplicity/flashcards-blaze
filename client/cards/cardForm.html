@@ -1,0 +1,15 @@
+<template name="CardForm">
+	<form id="new-card-form">
+			<textarea name="frontSide" form="new-card-form" placeholder="Front side of the card" rows="3">{{this.frontSide}}</textarea> 
+			<textarea name="backSide" form="new-card-form" placeholder="Back side of the card" rows="3">{{this.backSide}}</textarea>
+			<div class="category-container">
+				<div>
+					Category:
+				</div>
+				<div class="search-category-container">
+					{{> SearchCategory categories=categories}}
+				</div>			
+			</div>
+		<input type="submit" class="btn">
+	</form>
+</template>
