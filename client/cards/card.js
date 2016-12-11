@@ -15,6 +15,9 @@ Template.Card.helpers({
 	},
 	editMode: function() {
 		return Template.instance().editMode.get();
+	},
+	editCardAllow: function() {
+		return Session.get('editCardAllow') || Template.instance().editMode.get();
 	}
 });
 
@@ -23,7 +26,15 @@ Template.Card.events({
 		template.isBackSide.set(!template.isBackSide.get());
 	},
 	'click .fa-pencil': function(e, template) {
-		template.editMode.set(!template.editMode.get());
+		Session.set('newCard', false);
+		let editMode = template.editMode.get();
+		template.editMode.set(!editMode);
+		if(!editMode){
+			Session.set('editCardAllow', false);
+		}else{
+			Session.set('editCardAllow', true);
+		}
+
 	},
 	'click .fa-trash': function() { 
 		console.log("deleting the card");

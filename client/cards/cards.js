@@ -1,3 +1,7 @@
+Template.CardsAll.onCreated(function() {
+	Session.set('editCardAllow', true);
+});
+
 Meteor.subscribe('cards');
 
 Template.CardsAll.helpers({

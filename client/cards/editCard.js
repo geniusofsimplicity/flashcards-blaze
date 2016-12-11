@@ -1,5 +1,5 @@
 Template.EditCard.events({
-	'submit #new-card-form': function(e) {
+	'submit .edit-card-container #new-card-form': function(e) {
 		e.preventDefault();
 		console.log("in EditCard submit event");
 		let frontSide = e.target.frontSide.value;
