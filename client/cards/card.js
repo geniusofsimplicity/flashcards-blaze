@@ -14,7 +14,7 @@ Template.Card.helpers({
 		return categoryName; 
 	},
 	editMode: function() {
-		return Template.instance().editMode.get();
+		return Template.instance().editMode.get() && ! Session.get('newCard');
 	},
 	editCardAllow: function() {
 		return Session.get('editCardAllow') || Template.instance().editMode.get();
