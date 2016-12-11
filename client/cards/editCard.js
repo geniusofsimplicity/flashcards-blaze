@@ -1,6 +1,7 @@
 Template.EditCard.events({
-	'submit form': function(e) {
+	'submit #new-card-form': function(e) {
 		e.preventDefault();
+		console.log("in EditCard submit event");
 		let frontSide = e.target.frontSide.value;
 		let backSide = e.target.backSide.value;
 		let categoryName = e.target.categoryName.value;
@@ -8,5 +9,10 @@ Template.EditCard.events({
 		let categoryId = Categories.findOne({ name: categoryName })._id;
 		let editedCard = { _id: this._id, frontSide, backSide , categories: [{ categoryId: categoryId }] };		
 		Meteor.call('updateCard', editedCard);
-	}
+	},
+	'click .fa-trash': function() { 
+		console.log("deleting the card");
+		console.log(this);
+		Meteor.call('deleteCard', this._id);
+	},
 });

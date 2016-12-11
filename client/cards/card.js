@@ -24,5 +24,10 @@ Template.Card.events({
 	},
 	'click .fa-pencil': function(e, template) {
 		template.editMode.set(!template.editMode.get());
-	}
+	},
+	'click .fa-trash': function() { 
+		console.log("deleting the card");
+		console.log(this);
+		Meteor.call('deleteCard', this._id);
+	},
 });

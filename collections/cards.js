@@ -24,6 +24,9 @@ Meteor.methods({
       Cards.update( card._id, { $set: card });
     }
   },
+  deleteCard: function(id) {
+  	Cards.remove(id);
+  }
 });
 
 Category = new SimpleSchema({

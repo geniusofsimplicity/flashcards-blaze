@@ -4,9 +4,9 @@
 			{{#with this}}
 				{{> EditCard }}
 			{{/with}}
-			<!-- {{> EditCard frontSide=frontSide backSide=backSide categories=categories}} -->
-			}
+			<!-- {{> EditCard frontSide=frontSide backSide=backSide categories=categories}} -->			
 		{{else}}
+			<i class="fa fa-exchange"></i>
 			{{#if isBackSide}}
 				<p>Back side: {{backSide}}</p>
 			{{else}}
@@ -18,9 +18,8 @@
 					<span>{{getCategoryNameById(categoryId)}}</span>
 				{{/each}}
 			</p>
-		{{/if}}
+		{{/if}}		
 		
-		<i class="fa fa-exchange"></i>
 		<i class="fa fa-trash"></i>
 		<i class="fa fa-pencil"></i>
 	</article>
