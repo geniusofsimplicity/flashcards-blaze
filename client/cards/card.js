@@ -19,8 +19,11 @@ Template.Card.helpers({
 	editCardAllow: function() {
 		return Session.get('editCardAllow') || Template.instance().editMode.get();
 	},
-	editModeVar: function() {
-		return Template.instance().editMode;
+	editModeStyle: function() {
+		if(Template.instance().editMode.get() && ! Session.get('newCard')){
+			return "no-overflow";
+		}
+		return "";
 	},
 });
 

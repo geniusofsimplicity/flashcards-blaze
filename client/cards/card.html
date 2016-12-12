@@ -1,25 +1,36 @@
 <template name="Card">
-	<article class="card">
+	<article class="card {{editModeStyle}}">
 		{{#if editMode}}
 			{{#with this}}
 				{{> EditCard}}
 			{{/with}}
 			<!-- {{> EditCard frontSide=frontSide backSide=backSide categories=categories}} -->			
 		{{else}}
-			<i class="fa fa-exchange"></i>
-			{{#if isBackSide}}
-				<p>Back side: {{backSide}}</p>
-			{{else}}
-				<p>Front side: {{frontSide}}</p>
-			{{/if}}		
-			<div class="card-category-container">
-				<p>
-					Category: 
-					{{#each categories}}
-						<span>{{getCategoryNameById(categoryId)}}</span>
-					{{/each}}
-				</p>				
+			<div>
+				<i class="fa fa-exchange"></i>
+				{{#if isBackSide}}
+					<p>{{backSide}}</p>
+				{{else}}
+					<p>{{frontSide}}</p>
+				{{/if}}		
+				<div class="card-category-container">				
+					<div>
+						Category: 
+						{{#each categories}}
+							<span>{{getCategoryNameById(categoryId)}}</span>
+						{{/each}}
+					</div>
+					<div id="side-label">
+						{{#if isBackSide}}
+							Back side
+						{{else}}
+							Front side
+						{{/if}}	
+					</div>				
+					
+				</div>				
 			</div>
+			
 			
 		{{/if}}		
 		
