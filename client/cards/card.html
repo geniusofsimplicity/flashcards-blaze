@@ -12,12 +12,15 @@
 			{{else}}
 				<p>Front side: {{frontSide}}</p>
 			{{/if}}		
-			<p>
-				Category: 
-				{{#each categories}}
-					<span>{{getCategoryNameById(categoryId)}}</span>
-				{{/each}}
-			</p>
+			<div class="card-category-container">
+				<p>
+					Category: 
+					{{#each categories}}
+						<span>{{getCategoryNameById(categoryId)}}</span>
+					{{/each}}
+				</p>				
+			</div>
+			
 		{{/if}}		
 		
 		{{#if editCardAllow}}

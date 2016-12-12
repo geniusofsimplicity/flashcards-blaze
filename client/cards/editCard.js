@@ -10,15 +10,8 @@ Template.EditCard.events({
 		let editedCard = { _id: this._id, frontSide, backSide , categories: [{ categoryId: categoryId }] };		
 		Meteor.call('updateCard', editedCard);
 		Session.set('editCardAllow', true);
-		// // let parentTemplate =  Template.parentData(1);
-		// let editModeVar = Session.get('editModeVar');
-		// console.log("editModeVar");
-		// console.log(editModeVar);
-		// editModeVar.set(false);
 	},
-	'click .fa-trash': function() { 
-		console.log("deleting the card");
-		console.log(this);
+	'click .fa-trash': function() {
 		Meteor.call('deleteCard', this._id);
 	},
 });
