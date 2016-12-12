@@ -18,7 +18,10 @@ Template.Card.helpers({
 	},
 	editCardAllow: function() {
 		return Session.get('editCardAllow') || Template.instance().editMode.get();
-	}
+	},
+	editModeVar: function() {
+		return Template.instance().editMode;
+	},
 });
 
 Template.Card.events({
@@ -26,19 +29,29 @@ Template.Card.events({
 		template.isBackSide.set(!template.isBackSide.get());
 	},
 	'click .fa-pencil': function(e, template) {
+		let newCard = Session.get('newCard');
 		Session.set('newCard', false);
 		let editMode = template.editMode.get();
-		template.editMode.set(!editMode);
-		if(!editMode){
-			Session.set('editCardAllow', false);
-		}else{
-			Session.set('editCardAllow', true);
+		//if editCard was opened before new card was open,
+		// it edit should open edit card again
+		if(!(newCard && editMode)){ 
+			template.editMode.set(!editMode);
 		}
-
+		
+		if(editMode && !newCard){
+			Session.set('editCardAllow', true);
+		}else{
+			Session.set('editCardAllow', false);
+		}
+		Session.set('editModeVar', Template.instance());
 	},
 	'click .fa-trash': function() { 
 		console.log("deleting the card");
 		console.log(this);
 		Meteor.call('deleteCard', this._id);
+	},
+	'submit .edit-card-container #new-card-form': function(e, template) { 
+		console.log("*****testing ****");		
+		template.editMode.set(false);
 	},
 });

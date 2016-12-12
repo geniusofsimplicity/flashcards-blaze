@@ -13,5 +13,6 @@ Template.CardsAll.helpers({
 Template.CardsAll.events({
 	'click .new-card': () => {
 		Session.set('newCard', true);
+		// Session.set('editCardAllow', true);
 	}
 });
