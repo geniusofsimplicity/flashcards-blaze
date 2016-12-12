@@ -1,13 +1,12 @@
 <template name="CardsByCategory">
-	Test yourself in selected categories.
-	<br/>
+	<h3>
+		Test yourself in selected categories.
+	</h3>		
 	<div class="category-selector-container">
-		Categoties:
 		{{> SearchCategory}}		
 	</div>
 	
-	<br/>
-	Cards:
+	<br/>	
 	<section>
 		{{#each cardsByCategory}}
 			{{> Card}}
