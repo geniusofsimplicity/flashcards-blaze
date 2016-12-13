@@ -24,7 +24,7 @@ Template.Card.helpers({
 		if(Template.instance().editMode.get() && ! Session.get('newCard')){
 			return "no-overflow";
 		}
-		return ""; 
+		return "";
 	},
 });
 
