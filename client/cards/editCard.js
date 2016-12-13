@@ -1,7 +1,6 @@
 Template.EditCard.events({
 	'submit .edit-card-container #new-card-form': function(e, template) {
 		e.preventDefault();
-		console.log("in EditCard submit event");
 		let frontSide = e.target.frontSide.value;
 		let backSide = e.target.backSide.value;
 		let categoryName = e.target.categoryName.value;

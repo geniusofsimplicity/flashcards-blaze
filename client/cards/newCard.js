@@ -7,9 +7,10 @@ Template.NewCard.events({
 		let frontSide = e.target.frontSide.value;
 		let backSide = e.target.backSide.value;
 		let categoryName = e.target.categoryName.value;
-		Meteor.call('addCategory', categoryName);
-		let categoryId = Categories.findOne({ name: categoryName })._id;
-		let newCard = { frontSide, backSide , categories: [{ categoryId: categoryId }] };		
+		Meteor.call('addCategory', categoryName);		
+		let currentUserId = Meteor.userId(); 
+		let categoryId = Categories.findOne({ name: categoryName, author: currentUserId })._id;
+		let newCard = { frontSide, backSide , categories: [{ categoryId: categoryId }] };
 		Meteor.call('addCard', newCard);
 	},
 	'click .fa-close': function(){

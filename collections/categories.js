@@ -9,7 +9,7 @@ Categories.allow({
 Meteor.methods({
   addCategory: function(categoryName){
     let currentUserId = Meteor.userId();    
-    let isUnique = Categories.find({ name: categoryName}).count() == 0;
+    let isUnique = Categories.find({ name: categoryName, author: currentUserId}).count() == 0;
     if(currentUserId && isUnique){
       let id = Categories.insert({
         name: categoryName
@@ -22,8 +22,7 @@ Meteor.methods({
 CategorySchema = new SimpleSchema({
 	name: {
 		type: String,
-		label: "Name of category",
-		unique: true,
+		label: "Name of category",		
 		autoform: {			
 			label: false,
 			placeholder: "Name of category",			

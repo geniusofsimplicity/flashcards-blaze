@@ -10,7 +10,8 @@ Template.Card.helpers({
 		return Template.instance().isBackSide.get();
 	},
 	getCategoryNameById: (categoryId) => {
-		let categoryName = Categories.findOne({ _id: categoryId }).name;		
+		let currentUserId = Meteor.userId(); 		
+		let categoryName = Categories.findOne({ _id: categoryId, author: currentUserId }).name;		
 		return categoryName; 
 	},
 	editMode: function() {
@@ -48,13 +49,10 @@ Template.Card.events({
 		}
 		Session.set('editModeVar', Template.instance());
 	},
-	'click .fa-trash': function() { 
-		console.log("deleting the card");
-		console.log(this);
+	'click .fa-trash': function() {
 		Meteor.call('deleteCard', this._id);
 	},
-	'submit .edit-card-container #new-card-form': function(e, template) { 
-		console.log("*****testing ****");		
+	'submit .edit-card-container #new-card-form': function(e, template) {
 		template.editMode.set(false);
 	},
 });
