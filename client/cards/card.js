@@ -7,7 +7,7 @@ Template.Card.onCreated(function() {
 
 Template.Card.helpers({
 	isBackSide: function() {
-		return Template.instance().isBackSide.get();
+		return Template.instance().isBackSide.get();		
 	},
 	getCategoryNameById: (categoryId) => {
 		let currentUserId = Meteor.userId(); 		
@@ -32,22 +32,20 @@ Template.Card.events({
 	'click .fa-exchange': function(e, template) {
 		template.isBackSide.set(!template.isBackSide.get());
 	},
-	'click .fa-pencil': function(e, template) {
+	'click .fa-pencil': function(e, template) {		
 		let newCard = Session.get('newCard');
 		Session.set('newCard', false);
-		let editMode = template.editMode.get();
+		let editMode = template.editMode.get();		
 		//if editCard was opened before new card was open,
 		// it edit should open edit card again
 		if(!(newCard && editMode)){ 
 			template.editMode.set(!editMode);
 		}
-		
 		if(editMode && !newCard){
 			Session.set('editCardAllow', true);
 		}else{
 			Session.set('editCardAllow', false);
-		}
-		Session.set('editModeVar', Template.instance());
+		}		
 	},
 	'click .fa-trash': function() {
 		Meteor.call('deleteCard', this._id);
