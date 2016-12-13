@@ -1,3 +1,7 @@
+Template.CardsByCategory.onCreated(function() {
+	Session.set('editCardAllow', true);
+});
+
 Template.CardsByCategory.helpers({
 	cards: () => {
 		return Cards.find({});
