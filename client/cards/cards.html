@@ -5,10 +5,13 @@
 		<button class="new-card">New Card</button>
 	{{/if}}	
 	<section>
-		<h2>
-			Recently created:
-		</h2>
-		
+		<div id="recently-created">
+			<h2>
+				Recently created:
+			</h2>
+			<input id="recently-created-amount" name="recentlyCreatedAmount" type="number"  autocomplete="off" spellcheck="off"
+            value="{{recentlyCreatedAmount}}"/>
+		</div>		
 		{{#each cards}}
 			{{> Card}}
 		{{/each}}
