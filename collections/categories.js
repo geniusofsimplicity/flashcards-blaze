@@ -9,6 +9,7 @@ Categories.allow({
 Meteor.methods({
   addCategory: function(categoryName){
     let currentUserId = Meteor.userId();    
+    categoryName = categoryName.toLowerCase();
     let isUnique = Categories.find({ name: categoryName, author: currentUserId}).count() == 0;
     if(currentUserId && isUnique){
       let id = Categories.insert({

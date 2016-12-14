@@ -7,6 +7,7 @@ Template.NewCard.events({
 		let frontSide = e.target.frontSide.value;
 		let backSide = e.target.backSide.value;
 		let categoryName = e.target.categoryName.value;
+		categoryName = categoryName.toLowerCase();
 		Meteor.call('addCategory', categoryName);		
 		let currentUserId = Meteor.userId(); 
 		let categoryId = Categories.findOne({ name: categoryName, author: currentUserId })._id;

@@ -17,9 +17,7 @@ Meteor.methods({
     }
   },
   updateCard: function(card){
-    let currentUserId = Meteor.userId();
-    console.log("updating card");
-    console.log(card);
+    let currentUserId = Meteor.userId();    
     if(currentUserId){
       Cards.update( card._id, { $set: card });
     }
