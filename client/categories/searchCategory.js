@@ -13,7 +13,10 @@ Template.SearchCategory.helpers({
   searchCategories: () => {
     Categories.find().fetch().map(function(it){ return it.name; });
   },
-  getCategoryNameById: (id) => {
+  getCategoryNameById: (id) => {    
+    if(!id) {
+      id = Session.get('categoryId');
+    }
     let category = Categories.findOne({ _id: id });
     if(!!category){
       return category.name;
